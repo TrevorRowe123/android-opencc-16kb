@@ -1,14 +1,17 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion = 30
-    buildToolsVersion = "30.0.3"
-    ndkVersion "21.1.6352462"
-
+    namespace "com.zqc.opencc.android"
+    compileSdk 35
     defaultConfig {
         applicationId "com.zqc.opencc.android"
-        minSdkVersion 15
-        targetSdkVersion 30
+        minSdkVersion 21
+        targetSdkVersion 35
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
     }
 }
 
@@ -20,7 +23,6 @@ android.buildTypes {
 }
 
 dependencies {
-    //implementation project(':lib-opencc-android')
-    implementation 'com.github.qichuan:android-opencc:1.2.0'
+    implementation project(':lib-opencc-android')
     implementation 'androidx.appcompat:appcompat:1.3.0'
 }
