@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
+
 android {
     namespace 'com.zqc.opencc.android.lib'
     compileSdk 35
@@ -19,12 +20,25 @@ android {
         sourceCompatibility JavaVersion.VERSION_21
         targetCompatibility JavaVersion.VERSION_21
     }
+
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+
     dependencies {
         androidTestImplementation('junit:junit:4.13.2')
     }
+}
+
+afterEvaluate {
     publishing {
-        singleVariant("release") {
-            withSourcesJar()
+        publications {
+            release(MavenPublication) {
+                from components.release
+            }
         }
     }
 }
