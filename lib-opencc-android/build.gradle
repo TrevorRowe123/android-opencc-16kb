@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
 android {
     namespace 'com.zqc.opencc.android.lib'
     compileSdk 35
