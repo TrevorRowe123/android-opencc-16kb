@@ -22,4 +22,9 @@ android {
     dependencies {
         androidTestImplementation('junit:junit:4.13.2')
     }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 }
